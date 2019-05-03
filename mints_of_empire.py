@@ -546,30 +546,30 @@ def main(xlsx_fp, kml_fp, dyns_to_be_excluded, colour_dict,
                                                                descr_dict, descr_dict_year, dyn_dict,
                                                                ref_dict, ref_dict_year,
                                                                version, version_date, metal_list=["AU",])
-        write_geojson("webpage/data/AU_mints.geojson", AU_mints_geojson)
-        geojson2js("webpage/data/AU_mints.geojson", "webpage/data/import_AU_mints_geojson.js", "AU_mints")
-        write_geojson("webpage/data/AU_mints_year.geojson", AU_mints_year_geojson)
-        geojson2js("webpage/data/AU_mints_year.geojson", "webpage/data/import_AU_mints_year_geojson.js", "AU_mints_year")
+        write_geojson("data/AU_mints.geojson", AU_mints_geojson)
+        geojson2js("data/AU_mints.geojson", "data/import_AU_mints_geojson.js", "AU_mints")
+        write_geojson("data/AU_mints_year.geojson", AU_mints_year_geojson)
+        geojson2js("data/AU_mints_year.geojson", "data/import_AU_mints_year_geojson.js", "AU_mints_year")
 
     if "AR" in metal_list:
         AR_mints_geojson, AR_mints_year_geojson = make_geojson(data_dict, year_dict, coord,
                                                                descr_dict, descr_dict_year, dyn_dict,
                                                                ref_dict, ref_dict_year,
                                                                version, version_date, metal_list=["AR",])
-        write_geojson("webpage/data/AR_mints.geojson", AR_mints_geojson)
-        geojson2js("webpage/data/AR_mints.geojson", "webpage/data/import_AR_mints_geojson.js", "AR_mints")
-        write_geojson("webpage/data/AR_mints_year.geojson", AR_mints_year_geojson)
-        geojson2js("webpage/data/AR_mints_year.geojson", "webpage/data/import_AR_mints_year_geojson.js", "AR_mints_year")
+        write_geojson("data/AR_mints.geojson", AR_mints_geojson)
+        geojson2js("data/AR_mints.geojson", "data/import_AR_mints_geojson.js", "AR_mints")
+        write_geojson("data/AR_mints_year.geojson", AR_mints_year_geojson)
+        geojson2js("data/AR_mints_year.geojson", "data/import_AR_mints_year_geojson.js", "AR_mints_year")
 
     if "AE" in metal_list:
         AE_mints_geojson, AE_mints_year_geojson = make_geojson(data_dict, year_dict, coord,
                                                                descr_dict, descr_dict_year, dyn_dict,
                                                                ref_dict, ref_dict_year,
                                                                version, version_date, metal_list=["AE"])
-        write_geojson("webpage/data/AE_mints.geojson", AE_mints_geojson)
-        geojson2js("webpage/data/AE_mints.geojson", "webpage/data/import_AE_mints_geojson.js", "AE_mints")
-        write_geojson("webpage/data/AE_mints_year.geojson", AE_mints_year_geojson)
-        geojson2js("webpage/data/AE_mints_year.geojson", "webpage/data/import_AE_mints_year_geojson.js", "AE_mints_year")
+        write_geojson("data/AE_mints.geojson", AE_mints_geojson)
+        geojson2js("data/AE_mints.geojson", "data/import_AE_mints_geojson.js", "AE_mints")
+        write_geojson("data/AE_mints_year.geojson", AE_mints_year_geojson)
+        geojson2js("data/AE_mints_year.geojson", "data/import_AE_mints_year_geojson.js", "AE_mints_year")
 
 
 if __name__ == "__main__":

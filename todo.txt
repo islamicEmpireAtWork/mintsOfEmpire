@@ -1,0 +1,4 @@
+To do: 
+* style the popups
+* include references
+* make a version for every year instead of every decade
