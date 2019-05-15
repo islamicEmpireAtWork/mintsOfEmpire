@@ -1,0 +1,325 @@
+/*
+* Everything fullscreen.
+*/
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: Sans-Serif;
+}
+/*
+* You could style the timeline however you like, but we just make it wider here.
+*/
+.leaflet-left {
+  width: 85%;
+}
+
+input{
+  margin-left: 5px;
+}
+ul{
+  padding-left: 0em;
+  margin-left: 1em;
+  list-style: none;
+}
+li {
+  font-size: 80%;
+}
+h3 {
+ margin-top: 0;
+}
+p {
+ padding-left: 1em;
+ margin-top: 0;
+}
+#map{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: 0.5s;
+}
+/*@keyframes flash {
+  0% {opacity: 0; }
+  100% {opacity: 1; }
+}
+.circleSegment {
+  animation-name: flash;
+  animation-duration: 2s;
+}*/
+.sidepanel {
+  width: 0;
+  position: fixed;
+  background-color: #eee;
+  z-index: 1; /*keep on top*/
+  overflow-x: hidden;
+  transition: 0.5s;
+  height: 100%;
+}
+.sidepanel .closebtn {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 36px;
+  margin-left: 28vw;
+  padding: 8px 8x 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  z-index: 1; /*keep on top*/
+}
+.sidepanelDiv {
+  width: 0;
+  padding: 0;
+  position: fixed;
+  overflow: hidden;
+  transition: 0.5s;
+}
+.popupNotes {
+  padding: 0;
+  margin: 0;
+  padding-left: 1em;
+}
+.popupRefs {
+  margin-top: 0.7em;
+}
+.notesList {
+  padding: 0;
+  margin: 0;
+  padding-left: 1em;
+  margin-left: 1em;
+  list-style: circle;
+}
+.popupDynMetal {
+  margin-left: 2em;
+  text-indent: -2em;
+}
+.leaflet-popup-content h1 {
+  font-size: 1.5em;
+}
+/*https://stackoverflow.com/questions/26593152/vertical-button-using-css*/
+#sidepanelButton {
+  position: fixed;
+  bottom: 80px;
+  left: 0;
+  padding: 0px;
+  margin: 0px;
+  width: 40px;
+  height: 200px;
+  background: #FF931E;
+  z-index: 1; /*keep on top*/
+  border-radius: 0px 4px 4px 0px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.5s;
+}
+#sidepanelButton p {
+  color: #fff;
+  -moz-transform:rotate(90deg);
+  -ms-transform:rotate(90deg);
+  -o-transform:rotate(90deg);
+  -webkit-transform:rotate(90deg);
+  font-weight: bold;
+  margin: 0.5em;
+}
+<!--
+#yearDecadeToggle {
+  position: fixed;
+  bottom: 3vh;
+  /*left: 85vw;*/
+  right: 1vw;
+  padding: 0px;
+  margin: 0px;
+  width: 200px;
+  height: 55px;
+  background: #FF931E;
+  z-index: 1; /*keep on top*/
+  border-radius: 4px 4px 4px 4px;
+  text-align: center;
+  cursor: pointer;
+}
+#yearDecadeToggle p {
+  color: #fff;
+  line-height: 55px;
+  font-weight: bold;
+  /*margin: 0.7em;*/
+}
+-->
+#yearDecadeRadios {
+  position: fixed;
+  bottom: 80px;
+  left: 50px;
+  background: #FF931E;
+  color: #fff;
+  padding: 0.3em;
+  transition: 0.5s;
+  border-radius: 4px 4px 4px 4px;
+  z-index: 1; /*keep on top*/
+}
+.legend {
+  padding: 1em;
+  position: fixed;
+  right: 1vw;
+  width: 12.5%;
+  bottom: 0;
+  margin-bottom: 20px;
+  background: #ffffff;
+  opacity: 0.8;
+  border-radius: 4px 4px 4px 4px;
+  border-style: solid;
+  border-width: medium;
+  border-color: CornFlowerBlue;
+}
+.legend .closebtn {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 36px;
+  margin-left: 28vw;
+  padding: 8px 8x 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  z-index: 1; /*keep on top*/
+}
+.legend h3 {
+  margin: 0;
+}
+#legendOpened {
+  display: none;
+}
+#legendClosed {
+  display: block;
+  width: 7.5%;
+  height: 16px;
+}
+#active-mints{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0;
+}
+#mintInfo{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0;
+}
+#mintInfo1{
+  position: fixed;
+  top: 4em;
+  left: 0;
+  bottom: 30vh;
+  width: 0;
+}
+#mintInfo2{
+  position: fixed;
+  top: 4em;
+  left: 0;
+  bottom: 30vh;
+  width: 0;
+}
+#mintInfo3{
+  position: fixed;
+  top: 4em;
+  left: 0;
+  bottom: 30vh;
+  width: 0;
+}
+#authorityInfo{
+  position: fixed;
+  top: 70vh;
+  left: 0;
+  /*bottom: 20vh;*/
+  width: 0;
+}
+#authorityInfo1{
+  position: fixed;
+  top: 75vh;
+  left: 0;
+  bottom: 0;
+  width: 0;
+}
+#authorityInfo2{
+  position: fixed;
+  top: 75vh;
+  left: 10vw;
+  bottom: 0;
+  width: 0;
+}
+#authorityInfo3{
+  position: fixed;
+  top: 75vh;
+  left: 20vw;
+  bottom: 0;
+  width: 0;
+}
+#main {
+  height: 100%;
+  transition: margin-left 0.5s;
+}
+.dot {
+  height: 8px;
+  width: 8px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+.modal-trigger {
+  position: fixed;
+  left: 50px;
+  top: 10px;
+  margin: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1rem 1.5rem;
+  width: 24rem;
+  border-radius: 0.5rem;
+}
+.close-button {
+  float: right;
+  width: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: lightgray;
+}
+.close-button:hover {
+  background-color: darkgray;
+}
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1.0);
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
