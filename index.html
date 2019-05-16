@@ -2,12 +2,12 @@
 <html>
   <head>
     <title>Early Islamic Empire Mints</title>
-    <link rel="stylesheet" href="css/main.css"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
     <script src="scripts/leaflet.timeline.js"></script>
     <script src="scripts/leaflet.ajax.js"></script>
     <script src="scripts/moment.min.js"></script>
+    <link rel="stylesheet" href="css/main.css"/>
 
     <!––import the data: ––>
     <script src="data/import_AU_mints_geojson.js"></script>
@@ -91,11 +91,6 @@
        <p>Show mints per year</p>
      </div>
      -->
-     <div id="yearDecadeRadios">
-       Display mints by
-       <input type="radio" name="yearDecadeRadio" onclick="toggleYearDecade(this);" value="decade" checked />decade
-       <input type="radio" name="yearDecadeRadio" onclick="toggleYearDecade(this);" value="year" />year
-     </div>
      <div id="legendOpened"  class=" legend">
        <a href="javascript:void(0)" class="closebtn" onclick="toggleLegend()">x</a>
        <h3>Legend</h3>
