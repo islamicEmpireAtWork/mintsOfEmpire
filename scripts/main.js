@@ -5,6 +5,7 @@ var aeAuthorities = [];
 var activeDecade = "";  // the decade currently displayed in the timeline
 var sidepanelOpen = false; // to track whether the sidepanel is open or not
 var legendOpen = false;
+var layerControlOpen = false;
 var displayType = "year"; // display types: year (active mints per year) and decade (active mints per decade)
 
 /* svg paths for the circle thirds (3L = the left third, 3R = the right third, 3B = the bottom third):*/
@@ -33,6 +34,15 @@ var aeStyle = {
     weight: 1,
     opacity: 1,
     fillOpacity: 1,
+};
+
+var authoritiesStyle = {
+    radius: 12,
+    fillColor: "#fff",
+    color: "#fff",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.5,
 };
 
 function togglePanel() {
@@ -69,7 +79,9 @@ function openPanel() {
   document.getElementById("sidepanelButton").style.marginLeft="30vw";
   document.querySelectorAll(".sidepanelDiv").forEach(element => element.style.padding="1em");
   document.querySelectorAll(".sidepanelDiv").forEach(element => element.style.overflow="auto");
-  document.querySelectorAll(".modal-trigger").forEach(element => element.style.left="calc(30vw + 50px)");
+  document.querySelectorAll(".modal-trigger").forEach(element => element.style.marginLeft="30vw");
+  document.querySelectorAll(".legend").forEach(element => element.style.marginLeft="30vw");
+  document.querySelectorAll(".layer-control-dropdown").forEach(element => element.style.marginLeft="30vw");
 }
 
 function closePanel() {
@@ -94,7 +106,9 @@ function closePanel() {
   document.getElementById("sidepanelButton").style.marginLeft="0";
   document.querySelectorAll(".sidepanelDiv").forEach(element => element.style.padding="0");
   document.querySelectorAll(".sidepanelDiv").forEach(element => element.style.overflow="hidden");
-  document.querySelectorAll(".modal-trigger").forEach(element => element.style.left="50px");
+  document.querySelectorAll(".modal-trigger").forEach(element => element.style.marginLeft="0");
+  document.querySelectorAll(".legend").forEach(element => element.style.marginLeft="0");
+  document.querySelectorAll(".layer-control-dropdown").forEach(element => element.style.marginLeft="0");
 }
 
 function toggleLegend() {
@@ -107,15 +121,23 @@ function toggleLegend() {
     document.getElementById("legendClosed").style.display="none";
     document.getElementById("legendOpened").style.display="block";
     legendOpen = true;
-    if (displayType === "decade") {
-      document.getElementById("legendSize").style.display="block";
-    } else {
-      document.getElementById("legendSize").style.display="none";
-    }
   }
 }
 
-function defineCircleSegment(checkboxCount, metal) {
+function toggleLayerControl() {
+
+  if (layerControlOpen) {
+    document.getElementById("layerControlClosed").style.display="block";
+    document.getElementById("layerControlOpened").style.display="none";
+    layerControlOpen = false;
+  } else {
+    document.getElementById("layerControlClosed").style.display="none";
+    document.getElementById("layerControlOpened").style.display="block";
+    layerControlOpen = true;
+  }
+}
+
+function defineCircleStyle(checkboxCount, metal) {
   if (metal == "AU"){
      return auStyle;
   } else if (metal == "AR"){
@@ -136,6 +158,8 @@ function makeCircleTimeline(geoJ){
      {
         onEachFeature: mintPopUp,
         pointToLayer: function(feature, latlng) {
+          var mintsOrAuthorities = document.querySelector('input[name="mintsOrAuthorities"]:checked').value;
+          if (mintsOrAuthorities == "mints") {
           switch(feature.properties.metal) {
             case "AE":
               iconSettings.icon_style = aeStyle;
@@ -149,6 +173,10 @@ function makeCircleTimeline(geoJ){
             default:
               iconSettings.icon_style = aeStyle;
           }
+        } else {
+          iconSettings.icon_style = authoritiesStyle;
+          authoritiesStyle.fillColor = feature.properties.marker_colour;
+        }
            var divIcon = L.divIcon({ className: "circleSegment" });
            return L.circleMarker(latlng, iconSettings.icon_style);
         }
@@ -228,7 +256,7 @@ function updateList(timeline, mintListName, metalMintCount, authListName, metalA
       // add an item to the list of active mints for each active mint in the displayed decade:
       // (preceded with a dot colored after its minting authority; and a mouseover link to the relevant popup
       var colorDot = '<span class="dot" style="background-color: '+el.feature.properties.marker_colour+'" title="'+el.feature.properties.dynasty+'"></span>';
-      li.innerHTML = colorDot + '<span id="' + el.feature.properties.id + '" onmouseover="openMarkerPopup(this.id)">' + el.feature.properties.name + '</span>';
+      li.innerHTML = colorDot + '<span id="' + el.feature.properties.id + '" onmouseover="openMarkerPopup(this.id)"> ' + el.feature.properties.name + '</span>';
       mintList.appendChild(li);
 
       // add the minting authority of the current mint to the list of active mints if it is not already in there:
@@ -271,7 +299,7 @@ function openMarkerPopup(id){
 // CREATE THE MAP:
 
 var mapboxBandW = L.tileLayer('https://{s}.tiles.mapbox.com/v3/mapbox.blue-marble-topo-bathy-jul-bw/{z}/{x}/{y}.png', {
-  attribution: 'Tiles &copy; Esri &mdash; Source: USGS, Esri, TANA, DeLorme, and NPS',
+  attribution: 'Tiles &copy; Mapbox &mdash; Source: USGS, Esri, TANA, DeLorme, and NPS',
   maxZoom: 13
 });
 

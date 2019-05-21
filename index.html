@@ -7,6 +7,7 @@
     <script src="scripts/leaflet.timeline.js"></script>
     <script src="scripts/leaflet.ajax.js"></script>
     <script src="scripts/moment.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css"/>
 
     <!––import the data: ––>
@@ -22,29 +23,29 @@
   </head>
   <body>
    <div id="infosidepanel" class="sidepanel">
-    <a href="javascript:void(0)" class="closebtn" onclick="togglePanel()">x</a>
+    <a href="javascript:void(0)" class="closebtn" onclick="togglePanel()">&times;</a>
     <div id="active-mints" class="sidepanelDiv">
       <div id="mintInfo" class="sidepanelDiv">
-        <h3>Active mints (<a id="displayed-timeframe"></a>): </h3>
+        <h3>Active mints: </h3>
       </div>
       <div id="mintInfo1" class="sidepanelDiv">
-        <input type="checkbox" name="metal" id="AU_checkbox" value="AU" onclick="displayAU()" checked />
-        <label for="AU_checkbox">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
-            <g>
-              <path d="M10.0,10.0 L1.34,15.0 A10.0,10.0 0 0,1 10.0,0 Z" fill="#111" stroke="#111" stroke-width="0"/>
-            </g>
-          </svg>
-          AU (<a id="AU-mint-count"></a>)
-        </label>
-        <ul id="auMintInfo"></ul>
+              <input type="checkbox" name="metal" id="AU_checkbox" value="AU" onclick="displayAU()" checked />
+              <label for="AU_checkbox">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36">
+                <g>
+                  <circle cx="18" cy="18" r="18" fill="#FFD700" stroke="#FFD700" stroke-width="0"/>
+                </g>
+              </svg>
+              AU (<a id="AU-mint-count"></a>)
+              </label>
+              <ul id="auMintInfo"></ul>
       </div>
       <div id="mintInfo2" class="sidepanelDiv">
         <input type="checkbox" name="metal" id="AR_checkbox" value="AR" onclick="displayAR()" checked />
         <label for="AR_checkbox">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
             <g>
-              <path d="M10.0,10.0 L10.0,0 A10.0,10.0 0 0,1 18.66,15.0 Z" fill="#111" stroke="#111" stroke-width="0"/>
+              <circle cx="12" cy="12" r="12" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="0"/>
             </g>
           </svg>
           AR (<a id="AR-mint-count"></a>)
@@ -54,9 +55,9 @@
       <div id="mintInfo3" class="sidepanelDiv">
         <input type="checkbox" name="metal" id="AE_checkbox" value="AE" onclick="displayAE()" checked />
         <label for="AE_checkbox">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12">
             <g>
-              <path d="M10.0,10.0 L18.66,15.0 A10.0,10.0 0 0,1 1.34,15.0 Z" fill="#111" stroke="#111" stroke-width="0"/>
+              <circle cx="6" cy="6" r="6" fill="#b87333" stroke="#b87333" stroke-width="0"/>
             </g>
           </svg>
           AE (<a id="AE-mint-count"></a>)
@@ -81,60 +82,98 @@
       <ul id="aeAuthorityInfo"></ul>
     </div>
    </div>
+
    <div id="main">
      <div id="map"></div>
-     <div id="sidepanelButton" onclick="togglePanel()">
-       <p>Toggle&nbsp;mint&nbsp;info&nbsp;pane</p>
-     </div>
-     <!--
-     <div id="yearDecadeToggle" onclick="toggleYearDecade()">
-       <p>Show mints per year</p>
-     </div>
-     -->
-     <div id="legendOpened"  class=" legend">
-       <a href="javascript:void(0)" class="closebtn" onclick="toggleLegend()">x</a>
-       <h3>Legend</h3>
-       <h4>Shape:</h4>
-       <div>
-         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="15">
-           <g>
-             <path d="M10.0,10.0 L1.34,15.0 A10.0,10.0 0 0,1 10.0,0 Z" fill="#111" stroke="#111" stroke-width="0"/>
-           </g>
-         </svg>
-         AU (gold, dīnār) mints
-       </div>
-       <div>
-         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="15">
-           <g transform="translate(-10 0)">
-             <path d="M10.0,10.0 L10.0,0 A10.0,10.0 0 0,1 18.66,15.0 Z" fill="#111" stroke="#111" stroke-width="0"/>
-           </g>
-         </svg>
-         AR (silver, dirham) mints
-       </div>
-       <div>
-         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="15">
-           <g transform="translate(0 -6)">
-             <path d="M10.0,10.0 L18.66,15.0 A10.0,10.0 0 0,1 1.34,15.0 Z" fill="#111" stroke="#111" stroke-width="0"/>
-           </g>
-         </svg>
-         AE (copper, fals) mints
-       </div>
-       <div id="legendSize">
-         <h4>Size: </h4>
-         number of years the mint was active in this decade
-       </div>
-       <div id="legendColor" onclick="togglePanel()">
-         <h4>Colour: </h4>
-         see Mint info pane
-       </div>
-     </div>
-     <div id="legendClosed" class="legend">
-       <a href="javascript:void(0)" class="closebtn" onclick="toggleLegend()">^</a>
-       <h3>Legend</h3>
-     </div>
-     <div class="modal-trigger">
-       About
-     </div>
+     <ul>
+       <li>
+         <div class="modal-trigger">
+           About
+         </div>
+       </li>
+        <li>
+         <div id="sidepanelButton" onclick="togglePanel()">
+           Mint info
+         </div>
+       </li>
+         <li>
+           <div id="legendOpened"  class=" legend">
+             <a href="javascript:void(0)" class="closebtn" onclick="toggleLegend()">Legend</a>
+             <table id="legendTable">
+               <tr>
+                 <td id="gold">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36">
+                     <g>
+                       <circle cx="18" cy="18" r="18" fill="#FFD700" stroke="#FFD700" stroke-width="0"/>
+                     </g>
+                   </svg>
+                 </td>
+                 <td>
+                   AU (gold, dīnār) mints
+                 </td>
+               </tr>
+               <tr>
+                 <td id="silver">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                     <g>
+                       <circle cx="12" cy="12" r="12" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="0"/>
+                     </g>
+                   </svg>
+                 </td>
+                 <td>
+                   AR (silver, dirham) mints
+                 </td>
+               </tr>
+               <tr>
+                 <td id="copper">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12">
+                     <g>
+                       <circle cx="6" cy="6" r="6" fill="#b87333" stroke="#b87333" stroke-width="0"/>
+                     </g>
+                   </svg>
+                 </td>
+                 <td>
+                  AE (copper, fals) mints
+                </td>
+              </tr>
+              <tr>
+                <td>
+                </td>
+                <td>
+                 For colour, see <i>Mint info</i>
+               </td>
+             </tr>
+           </table>
+           </div>
+           <div id="legendClosed" class="legend">
+             <a href="javascript:void(0)" class="closebtn" onclick="toggleLegend()">Legend</a>
+           </div>
+         </li>
+          <li>
+           <div id="layerControlOpened" class="layer-control-dropdown">
+             <a href="javascript:void(0)" class="closebtn" onclick="toggleLayerControl()">Layers</a>
+             <form>
+             <table id="legendTable">
+               <tr>
+                 <td>
+                   <input type="radio" id="mintsRadio" name="mintsOrAuthorities" value="mints">
+                   <label for="mints">Mints</label>
+                 </td>
+               </tr>
+               <tr>
+                 <td>
+                   <input type="radio" id="authoritiesRadio" name="mintsOrAuthorities" value="authorities">
+                   <label for="authorities">Authorities</label>
+                 </td>
+               </tr>
+           </table>
+         </form>
+           </div>
+           <div id="layerControlClosed" class="layer-control-dropdown">
+             <a href="javascript:void(0)" class="closebtn" onclick="toggleLayerControl()">Layers</a>
+           </div>
+         </li>
+         </ul>
      <div class="modal">
        <div class="modal-content">
          <span class="close-button">&times;</span>
@@ -143,21 +182,21 @@
          <p>You can view the active mints per decade or per year.</p>
          <p>
            Each of the metal types are represented by a circle segment: mints producing gold dīnārs by
-             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36">
                <g>
-                 <path d="M10.0,10.0 L1.34,15.0 A10.0,10.0 0 0,1 10.0,0 Z" fill="#111" stroke="#111" stroke-width="0"/>
+                 <circle cx="18" cy="18" r="18" fill="#FFD700" stroke="#FFD700" stroke-width="0"/>
                </g>
              </svg>
            , silver dirhams by
-             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
-               <g transform="translate(-5 0)">
-                 <path d="M10.0,10.0 L10.0,0 A10.0,10.0 0 0,1 18.66,15.0 Z" fill="#111" stroke="#111" stroke-width="0"/>
+             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+               <g>
+                 <circle cx="12" cy="12" r="12" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="0"/>
                </g>
              </svg>
            , and copper fulūs by
-             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="15">
-               <g transform="translate(0 -6)">
-                 <path d="M10.0,10.0 L18.66,15.0 A10.0,10.0 0 0,1 1.34,15.0 Z" fill="#111" stroke="#111" stroke-width="0"/>
+             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12">
+               <g>
+                 <circle cx="6" cy="6" r="6" fill="#b87333" stroke="#b87333" stroke-width="0"/>
                </g>
              </svg>
            .
