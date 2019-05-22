@@ -77,6 +77,7 @@ function openPanel() {
   document.getElementById("map").style.marginLeft="30vw";
   document.getElementById("map").style.width="70vw";
   document.getElementById("sidepanelButton").style.marginLeft="30vw";
+  document.getElementById("menu").style.marginLeft="30vw";
   document.querySelectorAll(".sidepanelDiv").forEach(element => element.style.padding="1em");
   document.querySelectorAll(".sidepanelDiv").forEach(element => element.style.overflow="auto");
   document.querySelectorAll(".modal-trigger").forEach(element => element.style.marginLeft="30vw");
@@ -104,11 +105,60 @@ function closePanel() {
   document.getElementById("map").style.marginLeft="0";
   document.getElementById("map").style.width="100vw";
   document.getElementById("sidepanelButton").style.marginLeft="0";
+  document.getElementById("menu").style.marginLeft="0";
   document.querySelectorAll(".sidepanelDiv").forEach(element => element.style.padding="0");
   document.querySelectorAll(".sidepanelDiv").forEach(element => element.style.overflow="hidden");
   document.querySelectorAll(".modal-trigger").forEach(element => element.style.marginLeft="0");
   document.querySelectorAll(".legend").forEach(element => element.style.marginLeft="0");
   document.querySelectorAll(".layer-control-dropdown").forEach(element => element.style.marginLeft="0");
+}
+
+/* Open */
+function openNav() {
+document.getElementById("myNav").style.width = "20%";
+}
+
+/* Close */
+function closeNav() {
+document.getElementById("myNav").style.width = "0%";
+}
+
+/* Open About */
+function openAbout() {
+  document.getElementsByClassName("overlay-content")[0].style.transform = "translateX(-20vw)";
+  document.getElementById("aboutPane").style.transform = "translateX(-20vw)";
+}
+
+/* Close About */
+function closeAbout() {
+document.getElementsByClassName("overlay-content")[0].style.transform = "translateX(0vw)";
+document.getElementById("aboutPane").style.transform = "translate(0vw)";
+}
+
+/* Open Mental Maps div */
+function openMMDiv() {
+  document.getElementsByClassName("admin-maps-menu")[0].style.width = "0vw";
+  document.getElementsByClassName("mental-maps-menu")[0].style.width = "150px";
+}
+
+function closeMMDiv() {
+  document.getElementsByClassName("mental-maps-menu")[0].style.width = "0vw";
+}
+
+/* Open Admin Maps div */
+function openAMDiv() {
+  document.getElementsByClassName("mental-maps-menu")[0].style.width = "0vw";
+  document.getElementsByClassName("admin-maps-menu")[0].style.width = "150px";
+}
+
+function closeAMDiv() {
+  document.getElementsByClassName("admin-maps-menu")[0].style.width = "0vw";
+}
+
+/* Close all menus */
+function closeMenuDivs() {
+  document.getElementsByClassName("mental-maps-menu")[0].style.width = "0vw";
+  document.getElementsByClassName("admin-maps-menu")[0].style.width = "0vw";
 }
 
 function toggleLegend() {

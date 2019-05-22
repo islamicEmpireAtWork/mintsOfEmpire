@@ -22,6 +22,31 @@
     <meta name="viewport" content="width=device-width"></meta>
   </head>
   <body>
+
+    <div id="myNav" class="overlay">
+     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+     <div class="overlay-content">
+       <a href="https://pardeewalmsley.github.io/islamicempire/" id="home-title" onmouseover="closeMenuDivs()">Home</a>
+       <a id="mental-maps-div-button" onmouseover="openMMDiv()">Conceptual</a>
+       <a id="admin-maps-div-button" onmouseover="openAMDiv()">Administration</a>
+       <a href="https://pardeewalmsley.github.io/mintsOfEmpire/" onmouseover="closeMenuDivs()">Mints</a>
+     </div>
+
+     <div class="mental-maps-menu">
+       <a href="fars_index.html">Fars</a>
+       <a href="sham_index.html">Sham</a>
+       <a href="jazira_index.html">Jazira</a>
+       <a href="#">Ifriqiya</a>
+       <a href="#">Yemen</a>
+     </div>
+
+     <div class="admin-maps-menu">
+       <a href="https://pardeewalmsley.github.io/PowerLines/">Empire</a>
+     </div>
+
+    </div>
+
    <div id="infosidepanel" class="sidepanel">
     <a href="javascript:void(0)" class="closebtn" onclick="togglePanel()">&times;</a>
     <div id="active-mints" class="sidepanelDiv">
@@ -85,7 +110,10 @@
 
    <div id="main">
      <div id="map"></div>
-     <ul>
+     <ul id="menu-list">
+       <li>
+         <span id="menu" onclick="openNav()">&#9776;</span>
+       </li>
        <li>
          <div class="modal-trigger">
            About
@@ -156,7 +184,7 @@
              <table id="legendTable">
                <tr>
                  <td>
-                   <input type="radio" id="mintsRadio" name="mintsOrAuthorities" value="mints">
+                   <input type="radio" id="mintsRadio" name="mintsOrAuthorities" value="mints" checked>
                    <label for="mints">Mints</label>
                  </td>
                </tr>
