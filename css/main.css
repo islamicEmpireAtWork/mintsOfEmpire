@@ -669,3 +669,49 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
   background: #00aeff;
 }
+
+/* Media Queries */
+
+@media screen and (max-width: 1200px) {
+ .closebtn {
+   left: 0;
+ }
+ .aboutclosebtn {
+   left: -5%;
+ }
+ .overlay-content {
+   text-align: left;
+ }
+ .overlay a {
+   font-size: 20pt;
+   padding-bottom: 0px;
+ }
+ .mental-maps-menu {
+   margin-top: 150px;
+ }
+ .admin-maps-menu {
+   margin-top: 95px;
+ }
+}
+
+@media screen and (max-height: 550px) {
+ .overlay a {
+   font-size: 18pt;
+   padding-bottom: 0px;
+ }
+ #home-title {
+   font-size: 20pt;
+ }
+ #home-title::after {
+   content:'------';
+ }
+}
+
+@media screen and (max-height: 450px) {
+ #home-title {
+   margin-bottom: -10px;
+ }
+ .closebtn {
+   margin-top: -55px;
+ }
+}
