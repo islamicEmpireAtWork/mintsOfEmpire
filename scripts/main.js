@@ -121,6 +121,7 @@ document.getElementById("myNav").style.width = "20%";
 /* Close */
 function closeNav() {
 document.getElementById("myNav").style.width = "0%";
+closeMenuDivs();
 }
 
 /* Open About */
