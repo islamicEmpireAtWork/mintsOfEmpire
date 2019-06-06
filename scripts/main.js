@@ -1,3 +1,19 @@
+// CREATE THE MAP:
+
+var mapboxTiles = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiaXNhd255dSIsImEiOiJBWEh1dUZZIn0.SiiexWxHHESIegSmW8wedQ', {
+attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+maxZoom: 10,
+id: 'isawnyu.map-knmctlkh',
+accessToken: 'pk.eyJ1IjoiaXNhd255dSIsImEiOiJBWEh1dUZZIn0.SiiexWxHHESIegSmW8wedQ'
+});
+
+var map = L.map('map', {
+  layers: [mapboxTiles],
+  center: new L.LatLng(34,52),
+  zoom: 4,
+  maxBounds: [[90,-180], [-90, 180]]
+});
+
 var checkboxCount = 3;  // number of checkboxes (AU, AR, AE) checked
 var auAuthorities = []; // will hold a list of active minting authorities during the displayed timeframe
 var arAuthorities = [];
@@ -346,22 +362,6 @@ function openMarkerPopup(id){
     });
   }
 }
-
-// CREATE THE MAP:
-
-var mapboxTiles = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiaXNhd255dSIsImEiOiJBWEh1dUZZIn0.SiiexWxHHESIegSmW8wedQ', {
-attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-maxZoom: 10,
-id: 'isawnyu.map-knmctlkh',
-accessToken: 'pk.eyJ1IjoiaXNhd255dSIsImEiOiJBWEh1dUZZIn0.SiiexWxHHESIegSmW8wedQ'
-});
-
-var map = L.map('map', {
-  layers: [mapboxTiles],
-  center: new L.LatLng(34,52),
-  zoom: 4,
-  maxBounds: [[90,-180], [-90, 180]]
-});
 
 // CREATE THE TIMELINE SLIDER AND ADD IT TO THE MAP:
 
