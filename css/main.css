@@ -58,7 +58,7 @@ p {
 }
 #menu {
   position: relative;
-  color: #fff;
+  color: #555;
   font-size: 30pt;
   font-weight: 600;
   left: 10px;
@@ -220,7 +220,7 @@ font-size: 60px;
 #sidepanelButton {
   position: relative;
   font-size: 24pt;
-  color: white;
+  color: #555;
   left: 10px;
   margin: 10px;
   cursor: pointer;
@@ -266,7 +266,7 @@ font-size: 60px;
 .legend {
   position: relative;
   font-size: 16pt;
-  color: white;
+  color: #555;
   left: 10px;
   margin: 10px;
   transition: 0.5s;
@@ -275,7 +275,7 @@ font-size: 60px;
 .legend .closebtn {
   position: relative;
   font-size: 24pt;
-  color: white;
+  color: #555;
   margin-bottom: 10px;
   text-decoration: none;
   display: block;
@@ -379,7 +379,7 @@ font-size: 60px;
 .modal-trigger {
   position: relative;
   font-size: 24pt;
-  color: white;
+  color: #555;
   left: 10px;
   margin: 10px;
   cursor: pointer;
@@ -394,7 +394,7 @@ font-size: 60px;
 .layer-control-dropdown {
   position: relative;
   font-size: 16pt;
-  color: white;
+  color: #555;
   left: 10px;
   margin: 10px;
   cursor: pointer;
@@ -405,7 +405,7 @@ font-size: 60px;
 }
 .layer-control-dropdown a {
   text-decoration: none;
-  color: #fff;
+  color: #555;
   transition: 0.5s;
 }
 .layer-control-dropdown a:hover {
@@ -491,7 +491,7 @@ font-size: 60px;
   font-size: 36pt;
   top: 20px;
   right: 20px;
-  color: white;
+  color: #555;
 }
 
 .time-text::before {
@@ -687,10 +687,10 @@ input[type=range]:focus::-ms-fill-upper {
    padding-bottom: 0px;
  }
  .mental-maps-menu {
-   margin-top: 150px;
+   margin-top: 160px;
  }
  .admin-maps-menu {
-   margin-top: 95px;
+   margin-top: 135px;
  }
 }
 
