@@ -92,13 +92,7 @@ function openPanel() {
   document.getElementById("authorityInfo3").style.left="20vw";
   document.getElementById("map").style.marginLeft="30vw";
   document.getElementById("map").style.width="70vw";
-  document.getElementById("sidepanelButton").style.marginLeft="30vw";
-  document.getElementById("menu").style.marginLeft="30vw";
-  document.querySelectorAll(".sidepanelDiv").forEach(element => element.style.padding="1em");
-  document.querySelectorAll(".sidepanelDiv").forEach(element => element.style.overflow="auto");
-  document.querySelectorAll(".modal-trigger").forEach(element => element.style.marginLeft="30vw");
-  document.querySelectorAll(".legend").forEach(element => element.style.marginLeft="30vw");
-  document.querySelectorAll(".layer-control-dropdown").forEach(element => element.style.marginLeft="30vw");
+  document.getElementById("menu-list").style.marginLeft="30vw";
 }
 
 function closePanel() {
@@ -120,13 +114,7 @@ function closePanel() {
   document.getElementById("authorityInfo3").style.left="0";
   document.getElementById("map").style.marginLeft="0";
   document.getElementById("map").style.width="100vw";
-  document.getElementById("sidepanelButton").style.marginLeft="0";
-  document.getElementById("menu").style.marginLeft="0";
-  document.querySelectorAll(".sidepanelDiv").forEach(element => element.style.padding="0");
-  document.querySelectorAll(".sidepanelDiv").forEach(element => element.style.overflow="hidden");
-  document.querySelectorAll(".modal-trigger").forEach(element => element.style.marginLeft="0");
-  document.querySelectorAll(".legend").forEach(element => element.style.marginLeft="0");
-  document.querySelectorAll(".layer-control-dropdown").forEach(element => element.style.marginLeft="0");
+  document.getElementById("menu-list").style.marginLeft="0vw";
 }
 
 /* Open */
@@ -155,7 +143,7 @@ document.getElementById("aboutPane").style.transform = "translate(0vw)";
 /* Open Mental Maps div */
 function openMMDiv() {
   document.getElementsByClassName("admin-maps-menu")[0].style.width = "0vw";
-  document.getElementsByClassName("mental-maps-menu")[0].style.width = "150px";
+  document.getElementsByClassName("mental-maps-menu")[0].style.width = "auto";
 }
 
 function closeMMDiv() {
@@ -165,7 +153,7 @@ function closeMMDiv() {
 /* Open Admin Maps div */
 function openAMDiv() {
   document.getElementsByClassName("mental-maps-menu")[0].style.width = "0vw";
-  document.getElementsByClassName("admin-maps-menu")[0].style.width = "150px";
+  document.getElementsByClassName("admin-maps-menu")[0].style.width = "auto";
 }
 
 function closeAMDiv() {
@@ -352,7 +340,6 @@ function updateList(timeline, mintListName, metalMintCount, authListName, metalA
 
 
 function openMarkerPopup(id){
-  console.log(id);
   var geojsons = [AU_mintTimeline3, AR_mintTimeline3, AE_mintTimeline3];
   for (var i=0; i<3; i++){
     geojsons[i].eachLayer(function(feature){

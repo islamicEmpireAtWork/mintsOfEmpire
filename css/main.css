@@ -55,6 +55,8 @@ p {
 #menu-list {
   margin: 0px;
   overflow: hidden;
+  width: 330px;
+  transition: 0.5s;
 }
 #menu {
   position: relative;
@@ -131,7 +133,7 @@ font-size: 60px;
   background-color: rgba(0,0,0,0.9);
   width: 0vw;
   height: auto;
-  margin-top: 200px;
+  margin-top: 100px;
   left: 20vw;
   overflow-y: auto;
   line-height: 1;
@@ -149,7 +151,7 @@ font-size: 60px;
   background-color: rgba(0,0,0,0.9);
   width: 0vw;
   height: auto;
-  margin-top: 100px;
+  margin-top: 150px;
   left: 20vw;
   overflow-y: auto;
   line-height: 1;
@@ -315,6 +317,8 @@ font-size: 60px;
   left: 0;
   bottom: 0;
   width: 0;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 #mintInfo1{
   position: fixed;
@@ -343,6 +347,7 @@ font-size: 60px;
   left: 0;
   /*bottom: 20vh;*/
   width: 0;
+  margin-left: 10px;
 }
 #authorityInfo1{
   position: fixed;
@@ -521,9 +526,9 @@ margin-left:-3px
 .leaflet-control.leaflet-timeline-control .button-container button.pause:before {
 width:6px;
 height:25px;
-border-width:0 4px;
+border-width:0 0px;
 margin-top:7px;
-margin-left:-10px;
+margin-left:-6px;
 background: #fff;
 border-radius: 4px;
 }
@@ -531,7 +536,7 @@ border-radius: 4px;
 .leaflet-control.leaflet-timeline-control .button-container button.pause:after {
 width:6px;
 height:25px;
-border-width:0 4px;
+border-width:0 0px;
 border-radius: 4px;
 margin-top:7px;
 margin-left:6px;
@@ -687,7 +692,7 @@ input[type=range]:focus::-ms-fill-upper {
    padding-bottom: 0px;
  }
  .mental-maps-menu {
-   margin-top: 160px;
+   margin-top: 100px;
  }
  .admin-maps-menu {
    margin-top: 135px;
