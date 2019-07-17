@@ -130,11 +130,13 @@ font-size: 60px;
 
 .mental-maps-menu {
   position: fixed;
+  z-index: 1000;
   background-color: rgba(0,0,0,0.9);
-  width: 0vw;
+  margin-top: 45px;
   height: auto;
-  margin-top: 100px;
+  width: 0vw;
   left: 20vw;
+  top: 38vh;
   overflow-y: auto;
   line-height: 1;
   font-family: 'Raleway';
@@ -148,11 +150,13 @@ font-size: 60px;
 
 .admin-maps-menu {
   position: fixed;
+  z-index: 1000;
   background-color: rgba(0,0,0,0.9);
-  width: 0vw;
+  margin-top: 80px;
   height: auto;
-  margin-top: 150px;
+  width: 0vw;
   left: 20vw;
+  top: 46vh;
   overflow-y: auto;
   line-height: 1;
   font-family: 'Raleway';
@@ -162,6 +166,23 @@ font-size: 60px;
   transition: 0.5s;
   overflow-x: hidden;
   overflow-y: hidden;
+}
+
+/* The navigation links inside the overlay */
+.submenu-content a {
+ padding: 8px;
+ text-decoration: none;
+ outline: none;
+ font-size: 36px;
+ color: #ccc;
+ display: block; /* Display block instead of inline */
+ transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.submenu-content a:hover {
+ color: #00aeff;
+ text-decoration: none;
 }
 
 /* Side panel div */
